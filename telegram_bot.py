@@ -89,11 +89,8 @@ def analyzed_command(update, context):
     elif update.message.text == 'Копченый борщ со свинными ребрышками и языком':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/NMN2yRMhH07Jfw') 
         context.bot.send_message(chat_id=chat.id, text='320руб')
-    
-
-    
     else:
-        context.bot.send_message(chat_id=chat.id,text='По всем вопросам звоните: +7 (910) 429-29-69')
+        context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     
 
 def wake_up(update, context):

@@ -16,17 +16,31 @@ updater = Updater(token)
 chat_id = 288573595
 
 
-
 def get_soups_menu(update, context):
     chat = update.effective_chat
-    buttons = ReplyKeyboardMarkup([[
-        'Суп-солянка со свинной рулькой', 'Тыквенный суп'], 
+    buttons = ReplyKeyboardMarkup([
+        ['Суп-солянка со свинной рулькой', 'Тыквенный суп'], 
         ['Куриный бульон с домашней лапшой', 'Уха из Лосося и судака'],
-        ['Копченый борщ со свинными ребрышками и языком', 'вернуться в "Меню"'
-    ]], resize_keyboard=True)
+        ['Копченый борщ со свинными ребрышками и языком', 'вернуться в "Меню"']
+    ], resize_keyboard=True)
     context.bot.send_message(
         chat_id=chat.id,
         text = 'Супы на любой вкус',
+        reply_markup=buttons
+    )
+
+
+def get_salat_menu(update, context):
+    chat = update.effective_chat
+    buttons = ReplyKeyboardMarkup([
+        ['Классический "цезарь"', 'Шар сельди под шубой'],
+        ['Салат микс с куриным филе и копченым сыром', 'Овощной салат с яйцом пашот'],
+        ['Теплый с салат с тигровыми креветками, лососем и авокадо'],
+        ['Оливье с цесаркой и говяжьим языком', 'вернуться в "Меню"']
+    ], resize_keyboard=True)
+    context.bot.send_message(
+        chat_id=chat.id,
+        text = 'Салаты для разогрева аппетита',
         reply_markup=buttons
     )
 
@@ -89,6 +103,8 @@ def analyzed_command(update, context):
     elif update.message.text == 'Копченый борщ со свинными ребрышками и языком':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/NMN2yRMhH07Jfw') 
         context.bot.send_message(chat_id=chat.id, text='320руб')
+    elif update.message.text == 'Салаты':
+        get_salat_menu(update, context)
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     

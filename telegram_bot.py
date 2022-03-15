@@ -113,7 +113,7 @@ def get_desserts(update, context):
     chat = update.effective_chat
     buttons = ReplyKeyboardMarkup([
         ['Пирожное "Медовик"', 'Булочка с корицей', 'Пирожное "Прага"', 'Орешек'],
-        ['Заварное колечко с творожным кремом', 'Наполеон','Ягодная корзиночка'],
+        ['Заварное колечко с творожным кремом', 'Наполеон', 'Ягодная корзиночка'],
         ['Шоколадный кекс с творожным кремом', 'Пирожное "Ягодное облако"', 'вернуться в "Меню"']
     ], resize_keyboard=True)
     context.bot.send_message(
@@ -267,6 +267,33 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='от 85руб')
     elif update.message.text == 'Десерты':
         get_desserts(update, context)
+    elif update.message.text == 'Пирожное "Медовик"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/WzMNSKdct0IfHg')
+        context.bot.send_message(chat_id=chat.id, text='170руб')
+    elif update.message.text == 'Булочка с корицей':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/RU-bim1uTk3Inw')
+        context.bot.send_message(chat_id=chat.id, text='120руб')
+    elif update.message.text == 'Пирожное "Прага"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/p9cDo2RbeBvntA')
+        context.bot.send_message(chat_id=chat.id, text='170руб')
+    elif update.message.text == 'Заварное колечко с творожным кремом':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/36sxPXmf84P5eQ')
+        context.bot.send_message(chat_id=chat.id, text='150руб')
+    elif update.message.text == 'Наполеон':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/G7QJUJhvShTTNA')
+        context.bot.send_message(chat_id=chat.id, text='170руб')
+    elif update.message.text == 'Ягодная корзиночка':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/Qixh0LZ5AAuIcQ')
+        context.bot.send_message(chat_id=chat.id, text='160руб')
+    elif update.message.text == 'Шоколадный кекс с творожным кремом':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/-49juKQ8-oXS9A')
+        context.bot.send_message(chat_id=chat.id, text='100руб')
+    elif update.message.text == 'Пирожное "Ягодное облако"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/O2T4oSXCyUYHwQ')
+        context.bot.send_message(chat_id=chat.id, text='150руб')
+    elif update.message.text == 'Орешек':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/EyD2act6f5wIFQ')
+        context.bot.send_message(chat_id=chat.id, text='150руб')      
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     

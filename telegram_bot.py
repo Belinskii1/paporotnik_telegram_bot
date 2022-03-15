@@ -109,10 +109,24 @@ def get_snacks(update, context):
     )
 
 
+def get_desserts(update, context):
+    chat = update.effective_chat
+    buttons = ReplyKeyboardMarkup([
+        ['Пирожное "Медовик"', 'Булочка с корицей', 'Пирожное "Прага"', 'Орешек'],
+        ['Заварное колечко с творожным кремом', 'Наполеон','Ягодная корзиночка'],
+        ['Шоколадный кекс с творожным кремом', 'Пирожное "Ягодное облако"', 'вернуться в "Меню"']
+    ], resize_keyboard=True)
+    context.bot.send_message(
+        chat_id=chat.id,
+        text = 'Нежные и сладкие десерты',
+        reply_markup=buttons
+    )
+
+
 def get_drinks(update, context):
     chat = update.effective_chat
     buttons = ReplyKeyboardMarkup([
-        ['Чай', 'Кофе', 'вернуться в "Меню"'] 
+        ['Пирожное "Медовик"', 'Кофе', 'вернуться в "Меню"'] 
     ], resize_keyboard=True)
     context.bot.send_message(
         chat_id=chat.id,
@@ -245,11 +259,14 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='400руб')
     elif update.message.text == 'Напитки':
         get_drinks(update, context)
-    
-    
-    
-    
-    
+    elif update.message.text == 'Чай':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/848ave3Y-Gw7Sg')
+        context.bot.send_message(chat_id=chat.id, text='200руб')
+    elif update.message.text == 'Кофе':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/naRsA7OlDqiL5A')
+        context.bot.send_message(chat_id=chat.id, text='от 85руб')
+    elif update.message.text == 'Десерты':
+        get_desserts(update, context)
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     

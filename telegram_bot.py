@@ -47,14 +47,36 @@ def get_salat_menu(update, context):
 
 def get_menu(update, context):
     chat = update.effective_chat
-    buttons = ReplyKeyboardMarkup([[
-        'Супы', 'Салаты', 'Основные блюда'],
+    buttons = ReplyKeyboardMarkup([
+        ['Супы', 'Салаты', 'Основные блюда'],
         ['Закуски', 'Гарниры', 'Напитки'],
-        ['Десерты', 'Торты', 'Главное меню'
-    ]], resize_keyboard=True)
+        ['Десерты', 'Торты', 'Главное меню']
+    ], resize_keyboard=True)
     context.bot.send_message(
         chat_id=chat.id,
         text = random.choice(menu_unswers),
+        reply_markup=buttons
+    )
+
+
+def get_second_courses(update, context):
+    chat = update.effective_chat
+    buttons = ReplyKeyboardMarkup([
+        ['Лапша в азиатском стиле', 'Свиные медальоны с картофельным ризотто'],
+        [
+            'Треска в кляре с овощным рататуем и соусом Тартар',
+            'Бефстроганов на картофельных драниках'
+        ],
+        [
+            'Судак на картофельном пюре с луковыми кольцами и соусом из креветок',
+            'Утка конфи'
+        ],
+        ['Сёмга со стружкой из цукини', 'Отварное/гриль куриное филе с овощами'],
+        ['Свиная вырезка на подушке из грибов и лука порея','вернуться в "Меню"']
+    ], resize_keyboard=True)
+    context.bot.send_message(
+        chat_id=chat.id,
+        text = 'Наши изысканные вторые блюда',
         reply_markup=buttons
     )
 
@@ -123,6 +145,10 @@ def analyzed_command(update, context):
     elif update.message.text == 'Оливье с цесаркой и говяжьим языком':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/SFKvjCpB9NuMrQ')
         context.bot.send_message(chat_id=chat.id, text='290руб')
+    elif update.message.text == 'Вторые блюда':
+        get_second_courses(update, context)
+
+
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     

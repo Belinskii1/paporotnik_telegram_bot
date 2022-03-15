@@ -204,6 +204,33 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='450руб')
     elif update.message.text == 'Закуски':
         get_snacks(update, context)
+    elif update.message.text == 'Карельская калитка с креветкой и авокадо':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/jN70bZfjosBhtw')
+        context.bot.send_message(chat_id=chat.id, text='350руб')
+    elif update.message.text == 'Карельская калитка с картофельным ризотто':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/RUEJm_-WwmQCJg')
+        context.bot.send_message(chat_id=chat.id, text='250руб')
+    elif update.message.text == 'Закуска из сельди с маринованным луком и жареным хлебом':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/MhCT77Pa-ekAxQ')
+        context.bot.send_message(chat_id=chat.id, text='220руб')
+    elif update.message.text == 'Карельская калитка с жульеном':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/wVdUWpZourHNOg')
+        context.bot.send_message(chat_id=chat.id, text='250руб')
+    elif update.message.text == 'Тарелка с фермерскими сырами':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/SOJ662UdgCIYnw')
+        context.bot.send_message(chat_id=chat.id, text='400руб')
+    elif update.message.text == 'Жаренный сыр с ягодным и цитрусовым соусом':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/AGvLd2o5QlWZQA')
+        context.bot.send_message(chat_id=chat.id, text='550руб')
+    elif update.message.text == 'Карельская калитка со слабосолёным лососем и творожным сыром':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/iEAIH9Qn6DPX_Q')
+        context.bot.send_message(chat_id=chat.id, text='300руб')
+    elif update.message.text == 'Чесночные ржаные гренки с соусом':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/VYAir34QBTxK3w')
+        context.bot.send_message(chat_id=chat.id, text='150руб')
+    elif update.message.text == 'Тигровые креветки в панировке с томатно-сливочным соусом':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/0whPzl-px45TSg')
+        context.bot.send_message(chat_id=chat.id, text='400руб')
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     

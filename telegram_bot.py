@@ -167,9 +167,12 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id,text=contacts)
     elif update.message.text == 'Доставка':
         context.bot.send_message(chat_id=chat.id,text='Условия доставки и карта города')
-    elif update.message.text == 'Сайт':
-        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/74qcoq7Mot76gg') 
-        context.bot.send_message(chat_id=chat.id, text='http://paporotnikkafe.ru')
+    elif update.message.text == 'Фуршеты':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/OAonmFSZctcdCQ') 
+        context.bot.send_message(
+            chat_id=chat.id, 
+            text='Для бронирования можно написать нам на почту или позвонить по телефону 89104292969'
+        )
     elif update.message.text == 'Мероприятия':
         context.bot.send_message(chat_id=chat.id,text='Проведем от дня рождения до свадьбы')
     elif update.message.text == 'Отзывы':

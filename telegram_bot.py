@@ -164,19 +164,30 @@ def analyzed_command(update, context):
     if update.message.text == 'Меню' or update.message.text == 'вернуться в "Меню"':
         get_menu(update, context)
     elif update.message.text == 'Контакты':
-        context.bot.send_message(chat_id=chat.id,text=contacts)
+        context.bot.send_message(chat_id=chat.id, text='САЙТ http://paporotnikkafe.ru')
+        context.bot.send_message(chat_id=chat.id, text='ТЕЛЕФОН +7 (910) 429-29-69')
+        context.bot.send_message(chat_id=chat.id, text='ПОЧТА info@paporotnikkafe.ru')
+        context.bot.send_message(
+            chat_id=chat.id,
+            text='АДРЕС улица Ухова, 35, Солнечногорск, Московская область, Россия'
+        )
     elif update.message.text == 'Доставка':
-        context.bot.send_message(chat_id=chat.id,text='Условия доставки и карта города')
+        context.bot.send_message(chat_id=chat.id, text='Условия доставки и карта города')
     elif update.message.text == 'Фуршеты':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/OAonmFSZctcdCQ') 
         context.bot.send_message(
             chat_id=chat.id, 
             text='Для бронирования можно написать нам на почту или позвонить по телефону 89104292969'
         )
-    elif update.message.text == 'Мероприятия':
-        context.bot.send_message(chat_id=chat.id,text='Проведем от дня рождения до свадьбы')
+    elif update.message.text == 'Банкеты':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/d/0jojpko1NAwoHg')
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/B8RJft3SokgtiQ')
+        context.bot.send_message(
+            chat_id=chat.id,
+            text='Чтобы уточнить банкетный ассортимент, можно написать нам на почту или позвонить по телефону 89104292969'
+        )
     elif update.message.text == 'Отзывы':
-        context.bot.send_message(chat_id=chat.id,text='Здесь будут наши благодарные клиенты')
+        context.bot.send_message(chat_id=chat.id, text='Здесь будут наши благодарные клиенты')
     elif update.message.text == 'Главное меню':
         get_main(update, context)
     elif update.message.text == 'Супы' or update.message.text == 'вернуться в "Супы"': 

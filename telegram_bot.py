@@ -107,7 +107,19 @@ def get_snacks(update, context):
         text = 'Разнообразные закуски',
         reply_markup=buttons
     )
-    
+
+
+def get_drinks(update, context):
+    chat = update.effective_chat
+    buttons = ReplyKeyboardMarkup([
+        ['Чай', 'Кофе', 'вернуться в "Меню"'] 
+    ], resize_keyboard=True)
+    context.bot.send_message(
+        chat_id=chat.id,
+        text = 'Горячие и освежающие напитки',
+        reply_markup=buttons
+    )
+
 
 def get_main(update, context):
     chat = update.effective_chat
@@ -231,6 +243,13 @@ def analyzed_command(update, context):
     elif update.message.text == 'Тигровые креветки в панировке с томатно-сливочным соусом':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/0whPzl-px45TSg')
         context.bot.send_message(chat_id=chat.id, text='400руб')
+    elif update.message.text == 'Напитки':
+        get_drinks(update, context)
+    
+    
+    
+    
+    
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     

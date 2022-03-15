@@ -126,11 +126,25 @@ def get_desserts(update, context):
 def get_drinks(update, context):
     chat = update.effective_chat
     buttons = ReplyKeyboardMarkup([
-        ['Пирожное "Медовик"', 'Кофе', 'вернуться в "Меню"'] 
+        ['Чай', 'Кофе', 'вернуться в "Меню"'] 
     ], resize_keyboard=True)
     context.bot.send_message(
         chat_id=chat.id,
         text = 'Горячие и освежающие напитки',
+        reply_markup=buttons
+    )
+
+
+def get_cakes(update, context):
+    chat = update.effective_chat
+    buttons = ReplyKeyboardMarkup([
+        ['Торт "Медовик"', 'Торт "Солнечный"', 'Торт "Прага"'],
+        ['Торт "Имбирный"', 'Торт "Маска"', 'Торт "Пломбирный"'],
+        ['Торт "Наполеон"', 'вернуться в "Меню"']
+    ], resize_keyboard=True)
+    context.bot.send_message(
+        chat_id=chat.id,
+        text = 'Торты к событиям и на заказ',
         reply_markup=buttons
     )
 
@@ -293,7 +307,30 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='150руб')
     elif update.message.text == 'Орешек':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/EyD2act6f5wIFQ')
-        context.bot.send_message(chat_id=chat.id, text='150руб')      
+        context.bot.send_message(chat_id=chat.id, text='150руб')
+    elif update.message.text == 'Торты':
+        get_cakes(update, context)
+    elif update.message.text == 'Торт "Медовик"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/-oP9UEeXurssAw')
+        context.bot.send_message(chat_id=chat.id, text='от 1350руб')
+    elif update.message.text == 'Торт "Солнечный"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/TVinqO9UugnOwA')
+        context.bot.send_message(chat_id=chat.id, text='от 2000руб')
+    elif update.message.text == 'Торт "Прага"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/WqEn6elf1qIZzw')
+        context.bot.send_message(chat_id=chat.id, text='от 1150руб')
+    elif update.message.text == 'Торт "Имбирный"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/33dipoDStiD1lQ')
+        context.bot.send_message(chat_id=chat.id, text='от 1495руб')
+    elif update.message.text == 'Торт "Маска"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/z9xOCB8QlAcQsA')
+        context.bot.send_message(chat_id=chat.id, text='от 1500руб')
+    elif update.message.text == 'Торт "Пломбирный"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/DAL420XeHr-ACg')
+        context.bot.send_message(chat_id=chat.id, text='от 1200руб')
+    elif update.message.text == 'Торт "Наполеон"':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/1h-j6Z99Pl5j3g')
+        context.bot.send_message(chat_id=chat.id, text='от 1400руб')
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
     

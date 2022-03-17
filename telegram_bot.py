@@ -365,4 +365,4 @@ updater.dispatcher.add_handler(CommandHandler('start', wake_up))
 updater.dispatcher.add_handler(MessageHandler(Filters.text, analyzed_command))
 
 updater.start_polling()
-updater.idle() 
+updater.idle()

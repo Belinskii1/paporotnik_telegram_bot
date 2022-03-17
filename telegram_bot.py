@@ -347,7 +347,7 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='от 1400руб')
     else:
         context.bot.send_message(chat_id=chat.id,text='Набери /start, чтобы начать')
-    
+
 
 def wake_up(update, context):
     chat = update.effective_chat

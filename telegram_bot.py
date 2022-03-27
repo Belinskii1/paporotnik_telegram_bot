@@ -5,7 +5,7 @@ import requests
 import random
 from dotenv import load_dotenv
 
-from cafe_menu import menu_unswers, main_menu_buttoms
+from cafe_menu import menu_unswers, main_menu_buttoms, feed_back
 
 load_dotenv()
 
@@ -159,6 +159,31 @@ def get_main(update, context):
     )
 
 
+def get_feed_back(update, context):
+    chat = update.effective_chat
+    buttons = ReplyKeyboardMarkup([
+        ['Случайный отзыв о нас', 'Главное меню']
+    ], resize_keyboard=True)
+    context.bot.send_message(
+        chat_id=chat.id,
+        text = 'Вот что о нас пишут',
+        reply_markup=buttons
+    )
+
+
+def get_garnirs(update, context):
+    chat = update.effective_chat
+    buttons = ReplyKeyboardMarkup([
+        ['Картофель дольками', 'Макароны с сыром', 'Рис с овощами'],
+        ['Картофель фри', 'вернуться в "Меню"']
+    ], resize_keyboard=True)
+    context.bot.send_message(
+        chat_id=chat.id,
+        text = 'Вкусные и ароматные гарниры',
+        reply_markup=buttons
+    )
+
+
 def analyzed_command(update, context):
     chat = update.effective_chat
     if update.message.text == 'Меню' or update.message.text == 'вернуться в "Меню"':
@@ -174,7 +199,6 @@ def analyzed_command(update, context):
     elif update.message.text == 'Доставка':
         context.bot.send_message(chat_id=chat.id, text='При заказе от 500руб доставка по г. Солнечногорск - бесплатно')
         context.bot.send_message(chat_id=chat.id, text='В остальных случаях рассчитывается индивидуально по условиям Яндекс.доставка')
-
     elif update.message.text == 'Фуршеты':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/OAonmFSZctcdCQ') 
         context.bot.send_message(
@@ -189,9 +213,26 @@ def analyzed_command(update, context):
             text='Чтобы уточнить банкетный ассортимент, можно написать нам на почту или позвонить по телефону 89104292969'
         )
     elif update.message.text == 'Отзывы':
-        context.bot.send_message(chat_id=chat.id, text='Здесь будут наши благодарные клиенты')
+        get_feed_back(update, context)
+    elif update.message.text == 'Случайный отзыв о нас':
+        context.bot.send_photo(chat.id, random.choice(feed_back))
+
     elif update.message.text == 'Главное меню':
         get_main(update, context)
+    elif update.message.text == 'Гарниры':
+        get_garnirs(update, context)
+    elif update.message.text == 'Картофель дольками':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/lbg-rkeAWiknZQ') 
+        context.bot.send_message(chat_id=chat.id, text='180руб')
+    elif update.message.text == 'Макароны с сыром':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/TEyPzL5HWUjlbA')
+        context.bot.send_message(chat_id=chat.id, text='200руб')
+    elif update.message.text == 'Рис с овощами':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/XwFRRx2BN4wUPg')
+        context.bot.send_message(chat_id=chat.id, text='180руб')
+    elif update.message.text == 'Картофель фри':
+        context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/kOJLo_abKma7kQ')
+        context.bot.send_message(chat_id=chat.id, text='180руб')
     elif update.message.text == 'Супы' or update.message.text == 'вернуться в "Супы"': 
         get_soups_menu(update, context)
     elif update.message.text == 'Суп-солянка со свинной рулькой':

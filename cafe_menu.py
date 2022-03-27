@@ -6,14 +6,6 @@ menu_unswers = [
     'Только у нас карельские калитки'
 ]
 
-contacts = (
-    'САЙТ http://paporotnikkafe.ru',
-    'ТЕЛЕФОН +7 (910) 429-29-69',
-    'ПОЧТА info@paporotnikkafe.ru',
-    'АДРЕС улица Ухова, 35, Солнечногорск, Московская область, Россия'
-)
-
-
 main_menu_buttoms = ReplyKeyboardMarkup([[
         'Меню', 'Доставка'],
         ['Фуршеты', 'Банкеты'],

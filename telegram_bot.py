@@ -5,7 +5,7 @@ import requests
 import random
 from dotenv import load_dotenv
 
-from cafe_menu import menu_unswers, contacts, main_menu_buttoms
+from cafe_menu import menu_unswers, main_menu_buttoms
 
 load_dotenv()
 
@@ -172,7 +172,9 @@ def analyzed_command(update, context):
             text='АДРЕС улица Ухова, 35, Солнечногорск, Московская область, Россия'
         )
     elif update.message.text == 'Доставка':
-        context.bot.send_message(chat_id=chat.id, text='Условия доставки и карта города')
+        context.bot.send_message(chat_id=chat.id, text='При заказе от 500руб доставка по г. Солнечногорск - бесплатно')
+        context.bot.send_message(chat_id=chat.id, text='В остальных случаях рассчитывается индивидуально по условиям Яндекс.доставка')
+
     elif update.message.text == 'Фуршеты':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/OAonmFSZctcdCQ') 
         context.bot.send_message(
@@ -194,19 +196,19 @@ def analyzed_command(update, context):
         get_soups_menu(update, context)
     elif update.message.text == 'Суп-солянка со свинной рулькой':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/TAggR_duLTQhGQ') 
-        context.bot.send_message(chat_id=chat.id, text='300руб')
+        context.bot.send_message(chat_id=chat.id, text='350руб')
     elif update.message.text == 'Тыквенный суп':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/b6cykIW3WbKmsw') 
-        context.bot.send_message(chat_id=chat.id, text='250руб')
+        context.bot.send_message(chat_id=chat.id, text='280руб')
     elif update.message.text == 'Куриный бульон с домашней лапшой':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/IH3HZiFESVut_Q') 
-        context.bot.send_message(chat_id=chat.id, text='230руб')
+        context.bot.send_message(chat_id=chat.id, text='260руб')
     elif update.message.text == 'Уха из Лосося и судака':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/9znsGXvnXxHHzw') 
-        context.bot.send_message(chat_id=chat.id, text='400руб')
+        context.bot.send_message(chat_id=chat.id, text='420руб')
     elif update.message.text == 'Копченый борщ со свинными ребрышками и языком':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/NMN2yRMhH07Jfw') 
-        context.bot.send_message(chat_id=chat.id, text='320руб')
+        context.bot.send_message(chat_id=chat.id, text='350руб')
     elif update.message.text == 'Салаты':
         get_salat_menu(update, context)
     elif update.message.text == 'Классический "цезарь"':
@@ -214,19 +216,19 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='от 380руб')
     elif update.message.text == 'Шар сельди под шубой':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/N80QFCqBNwRljw') 
-        context.bot.send_message(chat_id=chat.id, text='230руб')
+        context.bot.send_message(chat_id=chat.id, text='300руб')
     elif update.message.text == 'Салат микс с куриным филе и копченым сыром':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/OOdFlETuegnmng') 
-        context.bot.send_message(chat_id=chat.id, text='350руб')
+        context.bot.send_message(chat_id=chat.id, text='380руб')
     elif update.message.text == 'Овощной салат с яйцом пашот':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/HMVguI7xsLYy7w') 
-        context.bot.send_message(chat_id=chat.id, text='250руб')
+        context.bot.send_message(chat_id=chat.id, text='300руб')
     elif update.message.text == 'Теплый с салат с тигровыми креветками, лососем и авокадо':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/CF6-cu29ggWvIQ') 
         context.bot.send_message(chat_id=chat.id, text='450руб')
     elif update.message.text == 'Оливье с цесаркой и говяжьим языком':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/SFKvjCpB9NuMrQ')
-        context.bot.send_message(chat_id=chat.id, text='290руб')
+        context.bot.send_message(chat_id=chat.id, text='300руб')
     elif update.message.text == 'Вторые блюда':
         get_second_courses(update, context)
     elif update.message.text == 'Лапша в азиатском стиле':
@@ -237,13 +239,13 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='500руб')
     elif update.message.text == 'Треска в кляре с овощным рататуем и соусом Тартар':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/6Fgga90sbLBfuQ')
-        context.bot.send_message(chat_id=chat.id, text='400руб')
+        context.bot.send_message(chat_id=chat.id, text='470руб')
     elif update.message.text == 'Бефстроганов на картофельных драниках':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/y6AK-5Kv6o7Qqw')
         context.bot.send_message(chat_id=chat.id, text='520руб')
     elif update.message.text == 'Судак на картофельном пюре с луковыми кольцами и соусом из креветок':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/WU4P4Y0di_QZ-w')
-        context.bot.send_message(chat_id=chat.id, text='450руб')
+        context.bot.send_message(chat_id=chat.id, text='490руб')
     elif update.message.text == 'Утка конфи':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/Wlk0lcO8WumxYA')
         context.bot.send_message(chat_id=chat.id, text='800руб')
@@ -252,24 +254,24 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='700руб')
     elif update.message.text == 'Отварное/гриль куриное филе с овощами':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/ajcZhCwHRJDvsg')
-        context.bot.send_message(chat_id=chat.id, text='340руб')
+        context.bot.send_message(chat_id=chat.id, text='400руб')
     elif update.message.text == 'Свиная вырезка на подушке из грибов и лука порея':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/gaPTehTxciAwng')
-        context.bot.send_message(chat_id=chat.id, text='450руб')
+        context.bot.send_message(chat_id=chat.id, text='500руб')
     elif update.message.text == 'Закуски':
         get_snacks(update, context)
     elif update.message.text == 'Карельская калитка с креветкой и авокадо':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/jN70bZfjosBhtw')
-        context.bot.send_message(chat_id=chat.id, text='350руб')
+        context.bot.send_message(chat_id=chat.id, text='400руб')
     elif update.message.text == 'Карельская калитка с картофельным ризотто':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/RUEJm_-WwmQCJg')
-        context.bot.send_message(chat_id=chat.id, text='250руб')
+        context.bot.send_message(chat_id=chat.id, text='300руб')
     elif update.message.text == 'Закуска из сельди с маринованным луком и жареным хлебом':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/MhCT77Pa-ekAxQ')
-        context.bot.send_message(chat_id=chat.id, text='220руб')
+        context.bot.send_message(chat_id=chat.id, text='250руб')
     elif update.message.text == 'Карельская калитка с жульеном':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/wVdUWpZourHNOg')
-        context.bot.send_message(chat_id=chat.id, text='250руб')
+        context.bot.send_message(chat_id=chat.id, text='300руб')
     elif update.message.text == 'Тарелка с фермерскими сырами':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/SOJ662UdgCIYnw')
         context.bot.send_message(chat_id=chat.id, text='400руб')
@@ -278,18 +280,18 @@ def analyzed_command(update, context):
         context.bot.send_message(chat_id=chat.id, text='550руб')
     elif update.message.text == 'Карельская калитка со слабосолёным лососем и творожным сыром':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/iEAIH9Qn6DPX_Q')
-        context.bot.send_message(chat_id=chat.id, text='300руб')
+        context.bot.send_message(chat_id=chat.id, text='350руб')
     elif update.message.text == 'Чесночные ржаные гренки с соусом':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/VYAir34QBTxK3w')
-        context.bot.send_message(chat_id=chat.id, text='150руб')
+        context.bot.send_message(chat_id=chat.id, text='200руб')
     elif update.message.text == 'Тигровые креветки в панировке с томатно-сливочным соусом':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/0whPzl-px45TSg')
-        context.bot.send_message(chat_id=chat.id, text='400руб')
+        context.bot.send_message(chat_id=chat.id, text='430руб')
     elif update.message.text == 'Напитки':
         get_drinks(update, context)
     elif update.message.text == 'Чай':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/848ave3Y-Gw7Sg')
-        context.bot.send_message(chat_id=chat.id, text='200руб')
+        context.bot.send_message(chat_id=chat.id, text='чайник 800мл от 290руб')
     elif update.message.text == 'Кофе':
         context.bot.send_photo(chat.id, 'https://disk.yandex.ru/i/naRsA7OlDqiL5A')
         context.bot.send_message(chat_id=chat.id, text='от 85руб')

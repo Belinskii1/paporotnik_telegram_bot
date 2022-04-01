@@ -8,7 +8,7 @@ from cafe_menu import menu_unswers, main_menu_buttoms, feed_back
 
 load_dotenv()
 
-token = os.getenv('TOKEN')
+token = os.environ['TOKEN']
 
 updater = Updater(token)
 

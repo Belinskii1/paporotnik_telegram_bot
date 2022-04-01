@@ -1,7 +1,6 @@
 import os
 from telegram import ReplyKeyboardMarkup
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
-import requests
 import random
 from dotenv import load_dotenv
 
